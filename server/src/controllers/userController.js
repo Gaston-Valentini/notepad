@@ -1,5 +1,7 @@
+import { validateAuthData } from "../validations/completeData.js";
+
 const register = (req, res) => {
-    return res.send("register");
+    validateAuthData(req.body, res);
 };
 
 export { register };
