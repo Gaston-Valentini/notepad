@@ -43,4 +43,41 @@ const register = async (req, res) => {
     }
 };
 
-export { register };
+const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        const userFound = await User.findOne({ email });
+
+        if (!userFound) {
+            return res.json({
+                success: false,
+                message: "Email o contraseña inválidos",
+            });
+        }
+
+        const unhashedPassword = bcrypt.compareSync(password, userFound.password);
+
+        if (!unhashedPassword) {
+            return res.json({
+                success: false,
+                message: "Email o contraseña inválidos",
+            });
+        }
+
+        const token = jwt.sign({ id: userFound._id }, process.env.JWT, { expiresIn: "24h" });
+
+        return res.json({
+            success: true,
+            message: "Usuario autenticado correctamente.",
+            token,
+        });
+    } catch (error) {
+        return res.json({
+            success: false,
+            message: `Error en el servidor: ${error}`,
+        });
+    }
+};
+
+export { register, login };
