@@ -1,4 +1,5 @@
 import style from "./Register.module.css";
+import logo from "../../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { FaUser, FaKey } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -6,47 +7,40 @@ import { MdEmail } from "react-icons/md";
 export default function Register() {
     return (
         <section className={style.container}>
-            <div className={style.content}>
-                <h1 className={style.title}>
-                    Bienvenido a la página de
-                    <br />
-                    <span>Registro</span>
-                </h1>
-                <form className={style.form}>
-                    <div className={style.formSection}>
-                        <div className={style.formSectionData}>
-                            <label>Nombre de usuario</label>
-                            <input type="text"></input>
+            <div className={style.logo}>
+                <img src={logo} />
+            </div>
+            <div className={style.card}>
+                <h1 className={style.cardTitle}>Registro</h1>
+                <form className={style.cardForm}>
+                    <div className={style.cardFormSection}>
+                        <div className={style.cardFormSectionIcon}>
+                            <FaUser className={style.icon} />
                         </div>
-                        <div className={style.formSectionIcon}>
-                            <FaUser />
-                        </div>
+                        <input className={style.cardFormSectionInput} type="text" placeholder="Usuario..." name="username" />
                     </div>
-                    <div className={style.formSection}>
-                        <div className={style.formSectionData}>
-                            <label>Correo electrónico</label>
-                            <input type="text"></input>
+                    <div className={style.cardFormSection}>
+                        <div className={style.cardFormSectionIcon}>
+                            <MdEmail className={style.icon} />
                         </div>
-                        <div className={style.formSectionIcon}>
-                            <MdEmail />
-                        </div>
+                        <input className={style.cardFormSectionInput} type="text" placeholder="Correo..." name="email" />
                     </div>
-                    <div className={style.formSection}>
-                        <div className={style.formSectionData}>
-                            <label>Contraseña</label>
-                            <input type="password"></input>
+                    <div className={style.cardFormSection}>
+                        <div className={style.cardFormSectionIcon}>
+                            <FaKey className={style.icon} />
                         </div>
-                        <div className={style.formSectionIcon}>
-                            <FaKey />
-                        </div>
+                        <input
+                            className={style.cardFormSectionInput}
+                            type="password"
+                            placeholder="Contraseña..."
+                            name="password"
+                        />
                     </div>
-                    <input type="submit" value="Registrarse" />
+                    <input className={style.cardFormSubmit} type="submit" value="Registrarse" />
                 </form>
-                <div className={style.redirect}>
-                    <p>
-                        Ya tienes una cuenta? <Link to={"/login"}>Inicia Sesión</Link>
-                    </p>
-                </div>
+                <p className={style.cardRedirect}>
+                    Ya tienes una cuenta? <Link to={"/login"}>Inicia Sesión</Link>
+                </p>
             </div>
         </section>
     );

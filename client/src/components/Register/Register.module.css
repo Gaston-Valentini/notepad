@@ -1,0 +1,80 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.card {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: var(--lightGrey);
+    border-radius: 10px;
+    box-shadow: 0 0 2px black;
+}
+
+.cardTitle {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--violet);
+}
+
+.cardForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.cardFormSection {
+    width: 100%;
+    display: flex;
+    outline: 1px solid black;
+}
+
+.cardFormSectionIcon {
+    padding: 10px;
+    display: flex;
+    background-color: var(--violet);
+}
+
+.cardFormSectionInput {
+    width: 100%;
+    padding: 0 10px;
+    border: none;
+    outline: 1px solid black;
+}
+.cardFormSectionInput:focus {
+    color: white;
+    outline: 1px solid black;
+    background-color: var(--violet);
+}
+.cardFormSectionInput:focus::placeholder {
+    color: black;
+}
+
+.cardFormSubmit {
+    padding: 10px;
+    font-weight: 800;
+    color: white;
+    background-color: var(--violet);
+    border: none;
+    border-radius: 10px;
+}
+.cardFormSubmit:hover {
+    cursor: pointer;
+    background-color: var(--darkViolet);
+}
+
+.cardRedirect a {
+    font-weight: 900;
+    color: var(--violet);
+    text-decoration: none;
+}
+.cardRedirect a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
