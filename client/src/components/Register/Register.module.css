@@ -42,6 +42,12 @@
     gap: 20px;
 }
 
+.cardFormMessage {
+    font-size: 12px;
+    text-align: center;
+    color: red;
+}
+
 .cardFormSection {
     width: 100%;
     display: flex;
