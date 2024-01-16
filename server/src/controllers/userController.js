@@ -1,4 +1,4 @@
-import { validateAuthData } from "../validations/completeData.js";
+import { validateAuthData } from "../validations/vieldValidation.js";
 import { User } from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -7,7 +7,14 @@ dotenv.config();
 
 const register = async (req, res) => {
     try {
-        validateAuthData(req.body, res);
+        const validation = validateAuthData(req.body);
+
+        if (validation.success === false) {
+            return res.json({
+                success: false,
+                message: validation.message,
+            });
+        }
 
         const { username, email, password } = req.body;
 
